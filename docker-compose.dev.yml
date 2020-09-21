@@ -1,0 +1,11 @@
+version: '3'
+services:
+  event-stream-poller-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    networks:
+      - event-stream-poller-dev
+networks:
+  event-stream-poller-dev:
+    driver: "bridge"

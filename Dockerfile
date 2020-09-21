@@ -1,0 +1,11 @@
+FROM python:3.8
+ WORKDIR /home/event_stream_poller 
+ENV PYTHONPATH "${PYTHONPATH}:/home/event_stream_poller" 
+COPY . .
+RUN groupadd docker && \
+      useradd -m -g docker docker && \
+      chown -R docker:docker /home/box_platform_portal && \
+      python -m pip install --upgrade pip && \
+      pip install -r requirements.txt 
+USER docker 
+CMD ["python", "src/main.py", "-e", "prod"] 

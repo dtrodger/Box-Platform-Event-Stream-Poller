@@ -1,0 +1,9 @@
+version: '3'
+services:
+  event-stream-poller:
+    build: .
+    networks:
+      - event-stream-poller
+networks:
+  event-stream-poller:
+    driver: "bridge"
